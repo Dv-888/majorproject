@@ -25,7 +25,7 @@ class MainDrawer extends StatelessWidget {
                 fit: BoxFit.cover),
                   )),
                   
-                  Text('hello'),
+                  Text('hello user'),
                 ],
               ),
             ),
