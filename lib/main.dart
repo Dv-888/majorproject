@@ -23,14 +23,12 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.grey,
       ),
       home: HomePage(),
-
-      routes: <String,WidgetBuilder>{
-
-        "Login" : (BuildContext context)=>Login(),
-        "SignUp":(BuildContext context)=>SignUp(),
-        "start":(BuildContext context)=>Start(),
+      routes: <String, WidgetBuilder>{
+        "Login": (BuildContext context) => Login(),
+        "SignUp": (BuildContext context) => SignUp(),
+        "Onboarding": (BuildContext context) => Onboarding(),
+        "start": (BuildContext context) => Start(),
       },
-      
     );
   }
 }

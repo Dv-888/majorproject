@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+//import 'package:google_sign_in/google_sign_in.dart';
 import 'SignUp.dart';
 
 class Login extends StatefulWidget {
@@ -9,6 +10,7 @@ class Login extends StatefulWidget {
 
 class _LoginState extends State<Login> {
   final FirebaseAuth _auth = FirebaseAuth.instance;
+  //final GoogleSignIn _googleSignIn = GoogleSignIn();
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   String _email, _password;
@@ -18,7 +20,7 @@ class _LoginState extends State<Login> {
       if (user != null) {
         print(user);
 
-        Navigator.pushReplacementNamed(context, "/");
+        Navigator.pushNamed(context, "/");
       }
     });
   }
@@ -62,7 +64,7 @@ class _LoginState extends State<Login> {
   }
 
   navigateToSignUp() async {
-   Navigator.push(context, MaterialPageRoute(builder: (context) => SignUp()));
+    Navigator.push(context, MaterialPageRoute(builder: (context) => SignUp()));
   }
 
   @override

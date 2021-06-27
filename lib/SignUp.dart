@@ -16,7 +16,7 @@ class _SignUpState extends State<SignUp> {
   checkAuthentication() async {
     _auth.authStateChanges().listen((user) async {
       if (user != null) {
-        Navigator.pushReplacementNamed(context, "/");
+        Navigator.pushReplacementNamed(context, "Onboarding");
       }
     });
   }
@@ -76,7 +76,6 @@ class _SignUpState extends State<SignUp> {
     return Scaffold(
         body: SingleChildScrollView(
       child: Container(
-        
         child: Column(
           children: <Widget>[
             SizedBox(height: 50),
