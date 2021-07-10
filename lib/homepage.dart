@@ -73,7 +73,10 @@ class _HomePageState extends State<HomePage> {
 
   @override
   void initState() {
-    super.initState();
+    Timer(Duration(seconds: 5), () {
+      super.initState();
+    });
+
     this.checkAuthentification();
     this.getUser();
     this._fetchData();
@@ -84,6 +87,7 @@ class _HomePageState extends State<HomePage> {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
         home: Scaffold(
+            //backgroundColor: Colors.black12,
             appBar: AppBar(
               title: Text('Home Page'),
             ),
@@ -156,6 +160,15 @@ class _HomePageState extends State<HomePage> {
                           ),
                         ),
                         Container(
+                          child: Text(
+                            "Soil Temperature ",
+                            style: TextStyle(
+                                color: Colors.green,
+                                fontSize: 22.0,
+                                fontWeight: FontWeight.w800),
+                          ),
+                        ),
+                        Container(
                             padding: EdgeInsets.only(bottom: 0),
                             child: CircularPercentIndicator(
                               radius: 120.0,
@@ -168,7 +181,7 @@ class _HomePageState extends State<HomePage> {
                               center: Text(
                                 (double.parse(list[0]["Temperature Soil"])
                                         .toStringAsPrecision(3)) +
-                                    "%",
+                                    "°C",
                                 style: TextStyle(
                                     fontSize: 20.0,
                                     fontWeight: FontWeight.w600,
@@ -178,6 +191,15 @@ class _HomePageState extends State<HomePage> {
                               circularStrokeCap: CircularStrokeCap.round,
                               progressColor: Colors.lightGreen,
                             )),
+                        Container(
+                          child: Text(
+                            "Air Temperature ",
+                            style: TextStyle(
+                                color: Colors.green,
+                                fontSize: 22.0,
+                                fontWeight: FontWeight.w800),
+                          ),
+                        ),
                         Container(
                             padding: EdgeInsets.only(bottom: 0),
                             child: CircularPercentIndicator(
@@ -191,7 +213,7 @@ class _HomePageState extends State<HomePage> {
                               center: Text(
                                 (double.parse(list[0]["Temperature Air"])
                                         .toStringAsPrecision(3)) +
-                                    "%",
+                                    "°C",
                                 style: TextStyle(
                                     fontSize: 20.0,
                                     fontWeight: FontWeight.w600,
@@ -201,6 +223,15 @@ class _HomePageState extends State<HomePage> {
                               circularStrokeCap: CircularStrokeCap.round,
                               progressColor: Colors.lightGreen,
                             )),
+                        Container(
+                          child: Text(
+                            "Air Humidity",
+                            style: TextStyle(
+                                color: Colors.green,
+                                fontSize: 22.0,
+                                fontWeight: FontWeight.w800),
+                          ),
+                        ),
                         /*Container(
                             margin: const EdgeInsets.only(
                                 bottom: 0, top: 50, right: 230),
@@ -308,7 +339,16 @@ class _HomePageState extends State<HomePage> {
                               progressColor: Colors.lightGreen,
                             )),
                         Container(
-                            padding: EdgeInsets.only(bottom: 100),
+                          child: Text(
+                            "Soil Moisture",
+                            style: TextStyle(
+                                color: Colors.green,
+                                fontSize: 22.0,
+                                fontWeight: FontWeight.w800),
+                          ),
+                        ),
+                        Container(
+                            padding: EdgeInsets.only(bottom: 10),
                             child: CircularPercentIndicator(
                               radius: 120.0,
                               lineWidth: 10.0,

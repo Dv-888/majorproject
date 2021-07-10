@@ -7,7 +7,7 @@ import 'homepage.dart';
 //import 'package:firebase_auth/firebase_auth.dart';
 //import 'package:flutter/material.dart';
 //import 'package:google_sign_in/google_sign_in.dart';
-import './main_drawer.dart';
+//import './main_drawer.dart';
 
 class MyAccount extends StatefulWidget {
   //const MyAccount({ Key? key }) : super(key: key);
@@ -132,7 +132,7 @@ class _MyAccountState extends State<MyAccount> {
                         labelText: "Full Name",
                         labelStyle: TextStyle(color: Colors.white60),
                         floatingLabelBehavior: FloatingLabelBehavior.always,
-                        hintText: "${user.displayName}",
+                        hintText: user.displayName,
                         hintStyle: TextStyle(
                             fontSize: 16,
                             fontWeight: FontWeight.bold,
