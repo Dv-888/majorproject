@@ -1,4 +1,4 @@
-import 'package:farmerapp/login.dart';
+//import 'package:farmerapp/login.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
@@ -95,6 +95,7 @@ class _SignUpState extends State<SignUp> {
                       child: TextFormField(
                           validator: (input) {
                             if (input.isEmpty) return 'Enter Name';
+                            return null;
                           },
                           decoration: InputDecoration(
                             labelText: 'Name',
@@ -106,6 +107,7 @@ class _SignUpState extends State<SignUp> {
                       child: TextFormField(
                           validator: (input) {
                             if (input.isEmpty) return 'Enter Email';
+                            return null;
                           },
                           decoration: InputDecoration(
                               labelText: 'Email',
@@ -115,8 +117,10 @@ class _SignUpState extends State<SignUp> {
                     Container(
                       child: TextFormField(
                           validator: (input) {
-                            if (input.length < 6)
+                            if (input.length < 6) {
                               return 'Password should have minimum 6 characters';
+                            }
+                            return null;
                           },
                           decoration: InputDecoration(
                             labelText: 'Password',

@@ -91,7 +91,10 @@ class _LoginState extends State<Login> {
                     Container(
                       child: TextFormField(
                           validator: (input) {
-                            if (input.isEmpty) return 'Enter Email';
+                            if (input.isEmpty) {
+                              return 'Enter Email';
+                            }
+                            return null;
                           },
                           decoration: InputDecoration(
                               labelText: 'Email',
@@ -101,8 +104,10 @@ class _LoginState extends State<Login> {
                     Container(
                       child: TextFormField(
                           validator: (input) {
-                            if (input.length < 6)
+                            if (input.length < 6) {
                               return 'Provide Minimum 6 Character';
+                            }
+                            return null;
                           },
                           decoration: InputDecoration(
                             labelText: 'Password',

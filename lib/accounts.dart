@@ -3,25 +3,20 @@ import 'package:flutter/material.dart';
 import 'homepage.dart';
 
 //import 'package:authentification/Start.dart';
-import 'package:farmerapp/main_drawer.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/material.dart';
-import 'package:google_sign_in/google_sign_in.dart';
+//import 'package:farmerapp/main_drawer.dart';
+//import 'package:firebase_auth/firebase_auth.dart';
+//import 'package:flutter/material.dart';
+//import 'package:google_sign_in/google_sign_in.dart';
 import './main_drawer.dart';
 
 class MyAccount extends StatefulWidget {
   //const MyAccount({ Key? key }) : super(key: key);
-
-
 
   @override
   _MyAccountState createState() => _MyAccountState();
 }
 
 class _MyAccountState extends State<MyAccount> {
-
-
-
   final FirebaseAuth _auth = FirebaseAuth.instance;
   User user;
   bool isloggedin = false;
@@ -51,7 +46,7 @@ class _MyAccountState extends State<MyAccount> {
     _auth.signOut();
 
     //final googleSignIn = GoogleSignIn();
-   // await googleSignIn.signOut();
+    // await googleSignIn.signOut();
   }
 
   @override
@@ -61,26 +56,26 @@ class _MyAccountState extends State<MyAccount> {
     this.getUser();
   }
 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+        backgroundColor: Colors.black12,
         elevation: 1,
         leading: IconButton(
-          icon: Icon(Icons.arrow_back,
-          color: Colors.green,
-          
+          icon: Icon(
+            Icons.arrow_back,
+            color: Colors.green,
+          ),
+          onPressed: () {
+            Navigator.push(
+                context, MaterialPageRoute(builder: (context) => HomePage()));
+          },
         ),
-        onPressed: ()
-        {
-          Navigator.push(
-                context,MaterialPageRoute(builder: (context) => HomePage())
-              );
-        },
-      ),
-      title: Text('My Account',style: TextStyle(fontSize: 18),),
+        title: Text(
+          'My Account',
+          style: TextStyle(fontSize: 18),
+        ),
       ),
       body: Container(
         alignment: Alignment.center,
@@ -89,26 +84,28 @@ class _MyAccountState extends State<MyAccount> {
                 image: AssetImage("assets/images/bg_03_2.png"),
                 fit: BoxFit.cover)),
         child: Container(
-          margin: EdgeInsets.all(30) ,
-           padding: EdgeInsets.only(left: 20,top: 20,right: 16,bottom: 20),
-           
-           decoration: BoxDecoration(
-             borderRadius: BorderRadius.all(Radius.circular(20)),
+          margin: EdgeInsets.all(30),
+          padding: EdgeInsets.only(left: 20, top: 20, right: 16, bottom: 20),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.all(Radius.circular(20)),
             color: Colors.black54,
-          
-           ),
-
+          ),
           child: Container(
-            padding: EdgeInsets.only(left: 16,top: 20,right: 16),
+            padding: EdgeInsets.only(left: 16, top: 20, right: 16),
             child: GestureDetector(
-              onTap: ()
-              {FocusScope.of(context).unfocus();}
-              ,
+              onTap: () {
+                FocusScope.of(context).unfocus();
+              },
               child: ListView(
                 children: [
-                  Text("Profile",style:TextStyle(fontSize: 22, fontWeight: FontWeight.w800,color: Colors.white)),
-                  
-                  SizedBox(height: 15,),
+                  Text("Profile",
+                      style: TextStyle(
+                          fontSize: 22,
+                          fontWeight: FontWeight.w800,
+                          color: Colors.white)),
+                  SizedBox(
+                    height: 15,
+                  ),
                   Center(
                     child: Stack(
                       children: [
@@ -116,49 +113,60 @@ class _MyAccountState extends State<MyAccount> {
                           width: 130,
                           height: 130,
                           decoration: BoxDecoration(
-                            shape: BoxShape.circle,
-                            image: DecorationImage(
-                              
-                              fit: BoxFit.cover,
-                               image:  NetworkImage("https://images.pexels.com/photos/670720/pexels-photo-670720.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"),
-                            )
-                          ),
+                              shape: BoxShape.circle,
+                              image: DecorationImage(
+                                fit: BoxFit.cover,
+                                image: NetworkImage(
+                                    "https://images.pexels.com/photos/670720/pexels-photo-670720.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"),
+                              )),
                         )
                       ],
                     ),
                   ),
-                  SizedBox(height: 25,),
-                  TextField(
-                    decoration: InputDecoration(
-                      contentPadding: EdgeInsets.only(bottom: 5),
-                      labelText: "Full Name",
-                      labelStyle: TextStyle(color: Colors.white60),
-                      floatingLabelBehavior: FloatingLabelBehavior.always,
-                      hintText: "${user.displayName}",
-                      hintStyle: TextStyle(fontSize: 16,fontWeight: FontWeight.bold, color: Colors.green)
-                    ),
+                  SizedBox(
+                    height: 25,
                   ),
-                  SizedBox(height: 25,),
                   TextField(
                     decoration: InputDecoration(
-                      contentPadding: EdgeInsets.only(bottom: 5),
-                      labelText: "E-mail Address",
-                      labelStyle: TextStyle(color: Colors.white60),
-                      floatingLabelBehavior: FloatingLabelBehavior.always,
-                      hintText: "${user.email}",
-                      hintStyle: TextStyle(fontSize: 16,fontWeight: FontWeight.bold, color: Colors.green)
-                    ),
+                        contentPadding: EdgeInsets.only(bottom: 5),
+                        labelText: "Full Name",
+                        labelStyle: TextStyle(color: Colors.white60),
+                        floatingLabelBehavior: FloatingLabelBehavior.always,
+                        hintText: "${user.displayName}",
+                        hintStyle: TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.green)),
                   ),
-                  SizedBox(height: 25,),
+                  SizedBox(
+                    height: 25,
+                  ),
                   TextField(
                     decoration: InputDecoration(
-                      contentPadding: EdgeInsets.only(bottom: 5),
-                      labelText: "Joined Farmer's Friend On",
-                      labelStyle: TextStyle(color: Colors.white60),
-                      floatingLabelBehavior: FloatingLabelBehavior.always,
-                      hintText: "${user.metadata.creationTime}",
-                      hintStyle: TextStyle(fontSize: 16,fontWeight: FontWeight.bold, color: Colors.green)
-                    ),
+                        contentPadding: EdgeInsets.only(bottom: 5),
+                        labelText: "E-mail Address",
+                        labelStyle: TextStyle(color: Colors.white60),
+                        floatingLabelBehavior: FloatingLabelBehavior.always,
+                        hintText: "${user.email}",
+                        hintStyle: TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.green)),
+                  ),
+                  SizedBox(
+                    height: 25,
+                  ),
+                  TextField(
+                    decoration: InputDecoration(
+                        contentPadding: EdgeInsets.only(bottom: 5),
+                        labelText: "Joined Farmer's Friend On",
+                        labelStyle: TextStyle(color: Colors.white60),
+                        floatingLabelBehavior: FloatingLabelBehavior.always,
+                        hintText: "${user.metadata.creationTime}",
+                        hintStyle: TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.green)),
                   )
                 ],
               ),
